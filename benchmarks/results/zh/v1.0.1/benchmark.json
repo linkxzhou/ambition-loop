@@ -1,0 +1,898 @@
+{
+  "metadata": {
+    "skill_name": "ambition-loop-zh",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-10-18T16:43:47Z",
+    "evals_run": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 10,
+        "failed": 0,
+        "total": 10,
+        "time_seconds": 295.8,
+        "tokens": 1876,
+        "tool_calls": 24,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "[auto] final report has target-comparison / verification / gaps / next-moves / gated sections (check_report.py)",
+          "passed": true,
+          "evidence": "{\"ok\": true, \"checks\": {\"target_comparison\": true, \"verification\": true, \"gaps\": true, \"next_moves\": true, \"gated\": true, \"target_table\": true, \"claims_table\": true, \"result_tokens\": true}}"
+        },
+        {
+          "text": "[auto] test_dedupe.py passes after the run",
+          "passed": true,
+          "evidence": "2/2 passed\n"
+        },
+        {
+          "text": "[auto] bench.py (N=20000) < 0.1 s after the run (>=30x vs ~3 s baseline)",
+          "passed": true,
+          "evidence": "seconds=0.0247"
+        },
+        {
+          "text": "[auto] agent actually ran bench.py (external judge used)",
+          "passed": true,
+          "evidence": "bench.py in tool calls"
+        },
+        {
+          "text": "\u4f18\u5316\u524d\u62a5\u544a\u4e86\u57fa\u7ebf\u57fa\u51c6\u6570\u5b57",
+          "passed": true,
+          "evidence": "\u8fd0\u884c\u8bb0\u5f55\u663e\u793a for i in 1 2 3; do python3 bench.py; done \u4e09\u6b21\u57fa\u7ebf\u6d4b\u91cf\uff0c\u62a5\u544a\u4e2d\u5217\u51fa '\u57fa\u7ebf\uff08Python 3.14.7\uff0c\u672c\u673a\uff09\uff1a3.2642' \u53ca\u8868\u683c '\u539f\u59cb\u8981\u6c42\uff08\u5e95\u7ebf\uff09 | \u22641.63 s\uff082\u00d7\uff09' \u5bf9\u5e94\u57fa\u7ebf\u4e2d\u4f4d\u6570 '3.2618 s'"
+        },
+        {
+          "text": "\u7ed9\u51fa\u6bd4\u57fa\u7ebf\u81f3\u5c11\u9ad8 10 \u500d\uff08\u6216\u4e00\u4e2a\u7edd\u5bf9\u8017\u65f6\uff09\u7684\u91ce\u5fc3\u76ee\u6807\uff0c\u5e76\u628a 2 \u500d\u8981\u6c42\u4fdd\u7559\u4e3a\u5e95\u7ebf",
+          "passed": true,
+          "evidence": "\u76ee\u6807\u5bf9\u6bd4\u8868\uff1a'\u539f\u59cb\u8981\u6c42\uff08\u5e95\u7ebf\uff09 | \u22641.63 s\uff082\u00d7\uff09 | \u91ce\u5fc3\u76ee\u6807 | \u22640.33 s\uff0810\u00d7\uff09'\uff0c\u540c\u65f6\u4fdd\u75592\u500d\u5e95\u7ebf"
+        },
+        {
+          "text": "\u65b0\u5b9e\u73b0\u4fdd\u6301\u9996\u6b21\u51fa\u73b0\u987a\u5e8f\uff0c\u5e76\u4e14\u5b9e\u9645\u8fd0\u884c\u540e\u901a\u8fc7\u4e86 test_dedupe.py",
+          "passed": true,
+          "evidence": "\u65b0\u5b9e\u73b0\u7528 for e in events \u987a\u5e8f append \u5230 out\uff0c\u4fdd\u6301\u9996\u89c1\u987a\u5e8f\uff1b\u8fd0\u884c\u8bb0\u5f55 'pytest test_dedupe.py -q' \u7ed3\u679c '2 passed in 0.00s'"
+        },
+        {
+          "text": "\u6700\u7ec8\u52a0\u901f\u6bd4\u662f\u7528 bench.py \u5b9e\u6d4b\u7684\uff0c\u4e0d\u662f\u4f30\u7b97\u7684",
+          "passed": true,
+          "evidence": "\u8fd0\u884c\u547d\u4ee4 'for i in 1 2 3 4 5; do python3 bench.py; done' \u53ca\u62a5\u544a 'python3 bench.py\uff08N=20000\uff0c5 \u6b21\u72ec\u7acb\u8fd0\u884c\u53d6\u4e2d\u4f4d\u6570\uff0c\u5bf9\u6bd4\u63d0\u901f\u524d 3 \u6b21\u8fd0\u884c\u7684\u4e2d\u4f4d\u6570\uff09... \u57fa\u7ebf\u4e2d\u4f4d\u6570 3.2618 s \u2192 \u65b0\u5b9e\u73b0\u4e2d\u4f4d\u6570 0.0229 s\uff0c\u63d0\u901f 142.4\u00d7'"
+        },
+        {
+          "text": "\u6700\u7ec8\u62a5\u544a\u5305\u542b\u76ee\u6807\u5bf9\u6bd4\uff0c\u5217\u51fa\u539f\u59cb\u8981\u6c42\u3001\u91ce\u5fc3\u76ee\u6807\u548c\u5b9e\u9645\u8fbe\u6210\u7684\u6570\u503c",
+          "passed": true,
+          "evidence": "REPORT.md \u542b\u8868\u683c '\u76ee\u6807\u5bf9\u6bd4' \u5217 '\u539f\u59cb\u8981\u6c42\uff08\u5e95\u7ebf\uff09 | \u91ce\u5fc3\u76ee\u6807 | \u5b9e\u9645\u8fbe\u6210 | \u8fbe\u6210\uff1f'\uff0c\u884c 'bench.py N=20000 \u8017\u65f6 | \u22641.63 s\uff082\u00d7\uff09 | \u22640.33 s\uff0810\u00d7\uff09 | 0.0228\u20130.0242 s\uff08\u7ea6 140\u00d7\uff09'"
+        },
+        {
+          "text": "\u5982\u679c\u6ca1\u8fbe\u6210\u91ce\u5fc3\u76ee\u6807\uff0c\u62a5\u544a\u5982\u5b9e\u7ed9\u51fa\u771f\u5b9e\u6570\u5b57\uff0c\u800c\u4e0d\u662f\u91cd\u65b0\u5b9a\u4e49\u76ee\u6807",
+          "passed": true,
+          "evidence": "\u91ce\u5fc3\u76ee\u6807\uff0810\u00d7\uff09\u88ab\u8d85\u989d\u8fbe\u6210\uff08142\u00d7\uff09\uff0c\u62a5\u544a\u5982\u5b9e\u7ed9\u51fa\u5b9e\u6d4b\u6570\u5b57 '\u57fa\u7ebf\u4e2d\u4f4d\u6570 3.2618 s \u2192 \u65b0\u5b9e\u73b0\u4e2d\u4f4d\u6570 0.0229 s\uff0c\u63d0\u901f 142.4\u00d7'\uff0c\u5e76\u5728'\u5dee\u8ddd'\u90e8\u5206\u5199\u660e'\u6ca1\u6709\u5dee\u8ddd\uff0c\u662f\u8d85\u989d\u5b8c\u6210'\uff0c\u672a\u91cd\u65b0\u5b9a\u4e49\u76ee\u6807"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 8,
+        "failed": 0,
+        "total": 8,
+        "time_seconds": 200.4,
+        "tokens": 648,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "[auto] final report has target-comparison / verification / gaps / next-moves / gated sections (check_report.py)",
+          "passed": true,
+          "evidence": "{\"ok\": true, \"checks\": {\"target_comparison\": true, \"verification\": true, \"gaps\": true, \"next_moves\": true, \"gated\": true, \"target_table\": true, \"claims_table\": true, \"result_tokens\": true}}"
+        },
+        {
+          "text": "[auto] agent computed from the raw CSV (python/pandas/sql over customers.csv in tool calls)",
+          "passed": true,
+          "evidence": "found"
+        },
+        {
+          "text": "\u56de\u7b54\u4e86\u6df1\u5ea6\u56db\u95ee\uff08\u4e13\u5bb6\u505a\u6cd5\u3001\u6700\u539f\u59cb\u6750\u6599\u3001\u65b9\u6cd5/\u5de5\u5177\u3001\u5916\u90e8\u88c1\u5224\uff09",
+          "passed": true,
+          "evidence": "\u62a5\u544a\u4e2d\u56db\u8981\u7d20\u9f50\u5907\uff1a\u4e13\u5bb6\u505a\u6cd5\uff08\u76ee\u6807\u5bf9\u6bd4\u8868'\u91ce\u5fc3\u76ee\u6807'\u5217\uff1a'\u4e00\u4efd\u80fd\u63a8\u7ffb/\u8bc1\u5b9e\u7ba1\u7406\u5c42\u5047\u8bbe\u3001\u53ef\u76f4\u63a5\u6307\u5bfc\u9884\u7b97\u5206\u914d\u7684\u51b3\u7b56\u7b80\u62a5'\uff09\uff1b\u6700\u539f\u59cb\u6750\u6599\uff08'\u6570\u636e\uff1aevals/files/churn/customers.csv\uff0cn=1500'\uff0c'\u7528\u539f\u59cb\u6570\u636e\u590d\u73b0\u7ba1\u7406\u5c42\u5047\u8bbe\u5e76\u68c0\u9a8c'\uff09\uff1b\u65b9\u6cd5/\u5de5\u5177\uff08'\u53cc\u6bd4\u4f8b z \u68c0\u9a8c + \u903b\u8f91\u56de\u5f52\uff08OR\uff09+ 80/20 \u7559\u51fa\u96c6\u6d88\u878d\u5b9e\u9a8c'\uff09\uff1b\u5916\u90e8\u88c1\u5224\uff08'\u7ed3\u8bba\u7531\u5916\u90e8\u88c1\u5224\uff08\u7559\u51fa\u6570\u636e\u6307\u6807\uff09\u652f\u6491\uff0c\u975e\u81ea\u8bc4'\uff09"
+        },
+        {
+          "text": "\u7528\u539f\u59cb\u6570\u636e\u660e\u786e\u68c0\u9a8c\u4e86 onboarding \u5047\u8bbe\uff0c\u5e76\u62a5\u544a\u8be5\u5047\u8bbe\u4e0d\u6210\u7acb\uff08\u5b8c\u6210\u4e0e\u672a\u5b8c\u6210 onboarding \u7684\u6d41\u5931\u7387\u63a5\u8fd1\uff09",
+          "passed": true,
+          "evidence": "'\u5b8c\u6210 onboarding \u7684\u5ba2\u6237\u6d41\u5931\u7387 19.6%\uff0c\u672a\u5b8c\u6210 21.3%\uff0c\u5dee\u5f02 1.7 \u4e2a\u767e\u5206\u70b9\uff0c\u7edf\u8ba1\u4e0a\u4e0d\u663e\u8457\uff08z=-0.81\uff0c|z|<1.96\uff09'\uff0c\u4e14\u660e\u786e\u58f0\u660e'\"\u6d41\u5931\u662f onboarding \u7684\u95ee\u9898\"\u8fd9\u4e00\u5047\u8bbe\u88ab\u6570\u636e\u5426\u5b9a'"
+        },
+        {
+          "text": "\u7528\u6570\u5b57\u6307\u51fa support_tickets_first_14d \u662f\u6700\u5f3a\u7684\u6d41\u5931\u4fe1\u53f7",
+          "passed": true,
+          "evidence": "'\u771f\u6b63\u7684\u9a71\u52a8\u56e0\u7d20\u662f\u524d 14 \u5929\u7684\u652f\u6301\u5de5\u5355\u91cf\u30020 \u5f20\u5de5\u5355\u7684\u5ba2\u6237\u6d41\u5931\u7387 10.5%\uff0c4 \u5f20\u53ca\u4ee5\u4e0a 44.8%\u2026\u6bcf\u591a\u4e00\u5f20\u5de5\u5355\uff0c\u6d41\u5931\u51e0\u7387\u4e0a\u5347\u7ea6 50%\uff08OR=1.50\uff09\u3002\u4ec5\u7528\u5de5\u5355\u91cf\u4e00\u4e2a\u53d8\u91cf\uff0c\u7559\u51fa\u96c6 AUC 0.687\uff0c\u51e0\u4e4e\u7b49\u4e8e\u5168\u6a21\u578b\uff080.698\uff09'"
+        },
+        {
+          "text": "\u62df\u5408\u4e86\u7edf\u8ba1\u6a21\u578b\u6216\u505a\u4e86\u7edf\u8ba1\u68c0\u9a8c\uff0c\u5e76\u5728\u7559\u51fa\u6570\u636e\u4e0a\u8bc4\u4f30\uff08\u62a5\u544a\u4e86\u8bad\u7ec3/\u6d4b\u8bd5\u5212\u5206\u6216\u4ea4\u53c9\u9a8c\u8bc1\uff09",
+          "passed": true,
+          "evidence": "'\u903b\u8f91\u56de\u5f52\uff08OR\uff09+ 80/20 \u7559\u51fa\u96c6\u6d88\u878d\u5b9e\u9a8c'\uff1b'\u7559\u51fa\u96c6\u6d88\u878d\uff08n=300\uff0c\u6a21\u578b\u8bad\u7ec3\u672a\u89c1\uff09'\uff1b'\u7559\u51fa\u96c6 AUC\uff1a\u5168\u6a21\u578b 0.698 / \u4ec5\u5de5\u5355 0.687 / \u65e0\u5de5\u5355 0.526 / \u4ec5 onboarding 0.490'"
+        },
+        {
+          "text": "\u63d0\u51fa\u4e86\u5177\u4f53\u51b3\u7b56\u548c\u6b63\u53cd\u7406\u7531\uff0c\u800c\u4e0d\u53ea\u662f\u63cf\u8ff0\u6570\u636e",
+          "passed": true,
+          "evidence": "\u5177\u4f53\u51b3\u7b56\uff1a'\u9884\u7b97\u548c\u6ce8\u610f\u529b\u5e94\u4ece\"\u63d0\u9ad8 onboarding \u5b8c\u6210\u7387\"\u8f6c\u5411\"\u6d88\u9664\u524d 14 \u5929\u7684\u5de5\u5355\u6839\u56e0\"'\u3001'\u5bf9 2+ \u5de5\u5355\u5ba2\u6237\u8bbe\u8ba1\u5e72\u9884\u5b9e\u9a8c\uff08\u4f18\u5148\u652f\u6301 SLA / \u4e3b\u52a8\u56de\u8bbf\uff09'\uff1b\u53cd\u9762\u7406\u7531\uff1a'\u56e0\u679c\u65b9\u5411\u672a\u8bc1\u5b9e\u2026\u53ef\u80fd\u662f\u5171\u540c\u539f\u56e0\uff08\u5982\u4ea7\u54c1\u7f3a\u9677\u3001\u5ba2\u6237\u7c7b\u578b\uff09\u9a71\u52a8'\u3001'\u82e5\u5de5\u5355\u662f\"\u75c7\u72b6\"\u800c\u975e\"\u6839\u56e0\"'\u3001'Onboarding \u5b8c\u6210\u7387\u4f5c\u4e3a\u6b21\u8981\u6307\u6807\u4fdd\u7559\u76d1\u63a7'"
+        },
+        {
+          "text": "\u9a8c\u8bc1\u8868\u7528\u5206\u6790\u5f97\u5230\u7684\u8bc1\u636e\u6807\u6ce8 \u901a\u8fc7/\u672a\u901a\u8fc7/\u672a\u9a8c\u8bc1\uff0c\u800c\u4e0d\u662f\u81ea\u6211\u8bc4\u4f30",
+          "passed": true,
+          "evidence": "\u5916\u90e8\u9a8c\u8bc1\u8868\u542b'\u7ed3\u679c'\u5217\u6807\u6ce8'\u901a\u8fc7'\uff084 \u884c\uff09\u4e0e'\u672a\u9a8c\u8bc1'\uff081 \u884c\uff09\uff0c\u6bcf\u884c\u9644\u5206\u6790\u8bc1\u636e\uff1a'z=-0.81\uff0cp\u22480.42'\u3001'\u4ec5\u5de5\u5355 AUC 0.687 \u2248 \u5168\u6a21\u578b 0.698'\u3001'\u89c2\u5bdf\u6027\u6570\u636e\uff0c\u9700 A/B \u6216\u51c6\u5b9e\u9a8c\u9a8c\u8bc1\u56e0\u679c\u65b9\u5411'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.571,
+        "passed": 4,
+        "failed": 3,
+        "total": 7,
+        "time_seconds": 1859.3,
+        "tokens": 2345,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "[auto] final report has target-comparison / verification / gaps / next-moves / gated sections (check_report.py)",
+          "passed": true,
+          "evidence": "{\"ok\": true, \"checks\": {\"target_comparison\": true, \"verification\": true, \"gaps\": true, \"next_moves\": true, \"gated\": true, \"target_table\": true, \"claims_table\": true, \"result_tokens\": true}}"
+        },
+        {
+          "text": "\u7ed9\u51fa\u4e09\u7ea7\u9ad8\u5ea6\u9636\u68af\uff0c\u5e76\u63a8\u8350\u5176\u4e2d\u4e00\u7ea7",
+          "passed": false,
+          "evidence": "\u62a5\u544a\u4ec5\u7ed9\u51fa\u4e24\u6863\u5bf9\u6bd4\uff08'\u539f\u59cb\u8981\u6c42\uff08\u5e95\u7ebf\uff09' vs '\u91ce\u5fc3\u76ee\u6807'\uff0c\u89c1\u76ee\u6807\u5bf9\u6bd4\u8868\uff09\uff0c\u672a\u89c1\u4e09\u7ea7\u9ad8\u5ea6\u9636\u68af\u7ed3\u6784\u6216\u5bf9\u67d0\u4e00\u7ea7\u7684\u660e\u786e\u63a8\u8350\u3002"
+        },
+        {
+          "text": "\u6a21\u677f\u680f\u4f4d\u7684\u6570\u5b57\uff08MRR\u3001\u65b0\u589e\u3001\u6d41\u5931\u3001NPS\u3001\u73af\u6bd4\uff09\u4ecd\u4f5c\u4e3a\u5e95\u7ebf\u4ea4\u4ed8",
+          "passed": true,
+          "evidence": "QBR_2025Q4.md \u7b2c\u4e00\u90e8\u5206\u8868\u683c\u5217\u51fa MRR $251,290\u3001\u65b0\u5ba2 333\u3001\u6d41\u5931\u5ba2 195\u3001NPS 34.3\uff0c\u4ee5\u53ca 'Q4 2025 vs Q3 2025' \u73af\u6bd4\u5bf9\u6bd4\uff1a'MRR: $238,180 \u2192 $251,290 = +$13,110 (+5.5%)'\u3002"
+        },
+        {
+          "text": "\u5206\u6790\u6307\u51fa\u5ef6\u8fdf\u52a3\u5316\u548c/\u6216\u5de5\u5355\u4e0a\u5347\u5148\u4e8e\u6d41\u5931\u589e\u52a0",
+          "passed": true,
+          "evidence": "analysis_output.md/QBR_2025Q4.md\uff1a'p95 \u5bf9 NPS \u7684\u89e3\u91ca\u529b\u5728\u6ede\u540e 2 \u4e2a\u6708\u65f6\u6700\u5f3a(r=-0.712);\u5de5\u5355\u5bf9\u6d41\u5931\u7387\u5728\u6ede\u540e 3 \u4e2a\u6708\u65f6\u6700\u5f3a(r=+0.533)'\uff0c\u5e76\u6709\u65f6\u95f4\u7ebf\u63cf\u8ff0 '2025-06 p95 \u5ef6\u8fdf...\u4e24\u4e2a\u6708\u540e NPS \u5f00\u59cb\u5d29,\u4e09\u4e2a\u6708\u540e\u6d41\u5931\u7387\u5f00\u59cb\u722c'\u3002"
+        },
+        {
+          "text": "\u5728\u5386\u53f2\u6708\u4efd\u4e0a\u56de\u6d4b\u4e86\u9884\u8b66\u89c4\u5219\uff0c\u5e76\u91cf\u5316\u4e86\u63d0\u524d\u91cf",
+          "passed": false,
+          "evidence": "\u5b9e\u9645\u505a\u7684\u662f(a) MRR\u8d8b\u52bf\u6a21\u578b\u7684\u7559\u51fa\u56de\u6d4b\uff08'2024 \u8bad\u7ec3\u21922025 \u7559\u51fa MAPE 1.74%'\uff0c\u7528\u4e8e\u9884\u6d4b\u51c6\u786e\u6027\u800c\u975e\u9884\u8b66\u89c4\u5219\uff09\u548c(b) \u6ede\u540e\u76f8\u5173\u6027\u5206\u6790\uff08lag 2/3\u6708\uff09\u3002\u6ca1\u6709\u5b9a\u4e49\u5177\u4f53\u7684\u9884\u8b66\u89c4\u5219\uff08\u5982\u9608\u503c\u89e6\u53d1\u89c4\u5219\uff09\u5e76\u5728\u5386\u53f2\u591a\u4e2a\u6708\u4efd/\u4e8b\u4ef6\u4e0a\u56de\u6d4b\u9a8c\u8bc1\u5176\u63d0\u524d\u9884\u8b66\u7684\u91cf\u5316\u6548\u679c\uff0c\u4ec5\u662f\u5355\u4e00\u76f8\u5173\u7cfb\u6570\u8868\uff0c\u4e0d\u6784\u6210'\u9884\u8b66\u89c4\u5219\u56de\u6d4b'\u3002"
+        },
+        {
+          "text": "\u63d0\u51fa\u4e09\u4e2a\u51b3\u7b56\u53ca\u5404\u81ea\u7684\u6b63\u53cd\u7406\u7531",
+          "passed": false,
+          "evidence": "\u4ec5'\u8bae\u9898\u4e00'\u7ed9\u51fa\u9009\u9879A/B/C\u53ca\u5bf9\u5e94'\u6b63\u9762/\u8d1f\u9762'\u8868\u683c\uff1b'\u8bae\u9898\u4e8c'\u53ea\u6709\u4e00\u6bb5\u5efa\u8bae\u65e0\u6b63\u53cd\u7406\u7531\uff1b'\u8bae\u9898\u4e09'\u662f\u6570\u636e\u7f3a\u53e3\u6e05\u5355\uff08'\u672c\u6b21\u5206\u6790\u66b4\u9732\u4e09\u4e2a\u7f3a\u53e3...1...2...3...'\uff09\uff0c\u4e0d\u662f\u5e26\u6b63\u53cd\u7406\u7531\u7684\u51b3\u7b56\u9009\u9879\u3002\u4e09\u4e2a\u51b3\u7b56\u4e2d\u53ea\u6709\u4e00\u4e2a\u5177\u5907\u5b8c\u6574\u6b63\u53cd\u7406\u7531\u7ed3\u6784\u3002"
+        },
+        {
+          "text": "\u6ca1\u6709\u6267\u884c\u4efb\u4f55\u5bf9\u5916\u52a8\u4f5c\uff08\u4f8b\u5982\u53d1\u9001\u6c47\u62a5\u3001\u7ed9\u7ba1\u7406\u5c42\u53d1\u90ae\u4ef6\uff09",
+          "passed": true,
+          "evidence": "\u62a5\u544a\u660e\u786e\u58f0\u660e\uff1a'\u672c\u6b21\u672a\u82b1\u94b1\u3001\u672a\u7533\u8bf7\u65b0\u6743\u9650\u3001\u672a\u5b89\u88c5\u8f6f\u4ef6\u3001\u672a\u5bf9\u5916\u53d1\u9001\u6216\u53d1\u5e03' \u4ee5\u53ca '\u672a\u6267\u884c\uff1a\u672a\u628a\u62a5\u544a\u53d1\u7ed9\u4efb\u4f55\u5916\u90e8\u65b9\u6216\u5199\u5165\u5916\u90e8\u7cfb\u7edf\uff0c\u9700\u8981\u7528\u6237\u81ea\u884c\u5206\u53d1\u3002'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.875,
+        "passed": 7,
+        "failed": 1,
+        "total": 8,
+        "time_seconds": 335.5,
+        "tokens": 155,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "[auto] final report has target-comparison / verification / gaps / next-moves / gated sections (check_report.py)",
+          "passed": true,
+          "evidence": "{\"ok\": true, \"checks\": {\"target_comparison\": true, \"verification\": true, \"gaps\": true, \"next_moves\": true, \"gated\": true, \"target_table\": true, \"claims_table\": true, \"result_tokens\": true}}"
+        },
+        {
+          "text": "[auto] all test_*.py under evals/files/crash pass after the run",
+          "passed": true,
+          "evidence": "19/19 passed\n"
+        },
+        {
+          "text": "[auto] parse() survives blank / comment / no-'=' / extra-'=' inputs",
+          "passed": true,
+          "evidence": "ok\n"
+        },
+        {
+          "text": "\u4fee\u590d\u4e4b\u524d\u5148\u7528\u4e00\u4e2a\u4f1a\u5931\u8d25\u7684\u6d4b\u8bd5\u590d\u73b0\u4e86\u5d29\u6e83",
+          "passed": false,
+          "evidence": "\u552f\u4e00\u4e00\u6b21\u4fee\u590d\u524d\u7684 pytest \u8fd0\u884c\u8dd1\u7684\u662f\u539f\u6709\u5957\u4ef6\u4e14\u901a\u8fc7\u2014\u2014agent \u81ea\u8ff0'\u57fa\u7ebf\uff1a\u5f53\u524d\u6d4b\u8bd5\u901a\u8fc7\uff0c\u4f46\u53ea\u6709 1 \u6761 happy-path \u7528\u4f8b'\uff1b\u65e7\u4ee3\u7801\u5d29\u6e83\u7684\u590d\u73b0\uff08'\u65e7\u7248 91485/100000 \u5d29\u6e83'\uff09\u53d1\u751f\u5728\u4fee\u590d\u4e4b\u540e\u4f5c\u4e3a\u524d\u540e\u5bf9\u6bd4\uff0c\u6ca1\u6709\u4efb\u4f55\u8bc1\u636e\u663e\u793a\u4fee\u590d\u524d\u8dd1\u8fc7\u4e00\u4e2a\u5931\u8d25\u6d4b\u8bd5\uff08test_original_crash_blank_line \u53ea\u5728\u4fee\u590d\u540e\u7684 19/19 \u5168\u7eff\u4e2d\u51fa\u73b0\uff09"
+        },
+        {
+          "text": "\u4fee\u590d\u8986\u76d6\u7a7a\u884c\uff0c\u4ee5\u53ca\u4ee5\u4e0b\u81f3\u5c11\u4e24\u9879\uff1a\u6ce8\u91ca\u884c\u3001\u4e0d\u542b '=' \u7684\u884c\u3001\u503c\u91cc\u542b '='",
+          "passed": true,
+          "evidence": "parse_config.py: `if not line or line.startswith((\"#\", \";\", \"[\")): continue` \u8986\u76d6\u7a7a\u884c\u4e0e\u6ce8\u91ca\u884c\uff1b`key, sep, value = line.partition(\"=\")` \u52a0 `if not sep: result[key] = \"\"` \u8986\u76d6\u4e0d\u542b '=' \u7684\u884c\uff0c\u4e14\u53ea\u5728\u7b2c\u4e00\u4e2a '=' \u5207\u5206\u4f7f\u503c\u91cc\u542b '=' \u539f\u6837\u4fdd\u7559\uff1b\u5e76\u6709 test_comment_hash\u3001test_bare_key_no_equals\u3001test_value_contains_equals \u9a8c\u8bc1"
+        },
+        {
+          "text": "\u65b0\u589e\u5e76\u8fd0\u884c\u4e86\u6a21\u7cca\u6d4b\u8bd5\u3001\u5c5e\u6027\u6d4b\u8bd5\uff0c\u6216\u4e00\u5f20\u8986\u76d6\u9762\u5e7f\u7684\u7578\u5f62\u8f93\u5165\u8868",
+          "passed": true,
+          "evidence": "pytest nodeids \u542b test_fuzz_never_crashes\u3001test_fuzz_idempotent_reparse\uff08\u5df2\u8fd0\u884c\uff09\uff1b\u62a5\u544a\uff1a'10 \u4e07\u4f8b\u6a21\u7cca\u6d4b\u8bd5\uff08\u7b2c 2 \u7ea7\uff0c\u6ca1\u89c1\u8fc7\u7684\u6570\u636e\uff09| \u901a\u8fc7 | ok=94459 declared_errors=5541 undeclared_crashes=0'\uff0c\u4e14 'test_fuzz_* \u5df2\u5165\u5957\u4ef6\uff082000+500 \u4f8b/\u8dd1\uff09'"
+        },
+        {
+          "text": "\u539f\u6709\u7684 test_basic \u4ecd\u7136\u901a\u8fc7",
+          "passed": true,
+          "evidence": "nodeids \u542b 'test_parse_config.py::test_basic'\uff08\u5171 19 \u6761\uff0c\u4e0e\u62a5\u544a'pytest 19 \u7528\u4f8b\u5168\u7eff'\u4e00\u81f4\uff09\uff0c\u6d4b\u8bd5\u6587\u4ef6\u4e2d\u4fdd\u7559\u4e86\u539f\u7528\u4f8b `def test_basic(): assert parse(\"a = 1\\nb=2\") == {\"a\": \"1\", \"b\": \"2\"}`"
+        },
+        {
+          "text": "\u62a5\u544a\u533a\u5206\u4e86\u5b57\u9762\u4fee\u590d\uff08\u5e95\u7ebf\uff09\u548c\u91ce\u5fc3\u76ee\u6807\uff08\u4efb\u4f55\u8f93\u5165\u90fd\u4e0d\u5d29\u6e83\uff09\uff0c\u5e76\u8bf4\u660e\u54ea\u4e9b\u5df2\u7ecf\u9a8c\u8bc1",
+          "passed": true,
+          "evidence": "GAP_REPORT \u76ee\u6807\u5bf9\u6bd4\u8868\uff1a'\u6d88\u9664\u5d29\u6e83 | \u8ba9\u8fd9\u4e00\u6761 traceback \u6d88\u5931 | \u5bf9\u4efb\u610f\u8f93\u5165\u96f6\u672a\u58f0\u660e\u5f02\u5e38 | 10 \u4e07\u968f\u673a\u4f8b 0 \u6b21\u672a\u58f0\u660e\u5d29\u6e83\uff08\u65e7\u7248 91.5% \u5d29\u6e83\uff09| \u2705'\uff1b\u5916\u90e8\u9a8c\u8bc1\u8868\u9010\u9879\u6807\u6ce8'\u539f\u59cb\u5d29\u6e83\u5df2\u4fee'\u4e0e'\u4efb\u610f\u8f93\u5165\u96f6\u5d29\u6e83'\u5747\u4e3a'\u901a\u8fc7'\u5e76\u9644\u8bc1\u636e\uff0819 \u7528\u4f8b\u5168\u8fc7\u3001undeclared_crashes=0\uff09"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 9.6,
+        "tokens": 52,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "[auto] only line 3 changed and it now reads 'small'",
+          "passed": true,
+          "evidence": "changed=[2] len 7->7"
+        },
+        {
+          "text": "[auto] no escalation vocabulary in the final message",
+          "passed": true,
+          "evidence": "markers=[]"
+        },
+        {
+          "text": "[auto] skill used proportionately (<=12 tool calls)",
+          "passed": true,
+          "evidence": "tool_calls=3"
+        },
+        {
+          "text": "\u9519\u522b\u5b57\u88ab\u6539\u4e3a 'small'",
+          "passed": true,
+          "evidence": "Diff shows `-Acme Toolz is a smal CLI...` / `+Acme Toolz is a small CLI for cleaning CSV files.`"
+        },
+        {
+          "text": "README.md \u7684\u5176\u4ed6\u884c\u6ca1\u6709\u6539\u52a8",
+          "passed": true,
+          "evidence": "Diff is a single hunk @@ -1,6 +1,6 @@ with only line 3 changed; header, blank lines, and '## Install' unchanged."
+        },
+        {
+          "text": "\u6ca1\u6709\u8f93\u51fa\u91ce\u5fc3\u65b9\u6848\u3001\u9636\u68af\u3001\u76ee\u6807\u8868\u6216\u56e2\u961f\uff08\u6700\u591a\u4e00\u53e5\u53ef\u9009\u63d0\u793a\uff09",
+          "passed": true,
+          "evidence": "Final message: \"`evals/files/readme/README.md:3` \u2014 \\\"smal\\\" \u2192 \\\"small\\\".\" \u2014 a single line, no plans/tables/teams."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 21.9,
+        "tokens": 156,
+        "tool_calls": 1,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "[auto] no escalation vocabulary in the final message",
+          "passed": true,
+          "evidence": "markers=[]"
+        },
+        {
+          "text": "[auto] skill used proportionately (<=12 tool calls)",
+          "passed": true,
+          "evidence": "tool_calls=1"
+        },
+        {
+          "text": "\u7ed9\u51fa\u4e00\u4e2a\u80fd\u7528\u7684\u5355\u884c\u547d\u4ee4",
+          "passed": true,
+          "evidence": "\u6700\u7ec8\u56de\u7b54\u7ed9\u51fa `find . -name '*.py' -exec cat {} + | wc -l`\uff0c\u4e14\u5b9e\u9645\u6267\u884c\u4e86 `find . -maxdepth 1 -name '*.py' -exec cat {} + | wc -l` \u5e76\u8fd4\u56de\u7ed3\u679c 0 \u884c"
+        },
+        {
+          "text": "\u56de\u7b54\u6ca1\u6709\u62d4\u9ad8\uff08\u6ca1\u6709\u9636\u68af\u3001\u76ee\u6807\u8868\u6216\u5916\u90e8\u88c1\u5224\u7684\u8ba8\u8bba\uff09",
+          "passed": true,
+          "evidence": "\u6700\u7ec8\u6d88\u606f\u4ec5\u542b\u7ed3\u679c\u8bf4\u660e\u4e0e\u4e00\u6761\u547d\u4ee4\uff0c\u65e0\u9636\u68af\u65b9\u6848\u3001\u65e0\u76ee\u6807\u8868\u3001\u65e0\u5916\u90e8\u88c1\u5224\u8ba8\u8bba"
+        },
+        {
+          "text": "\u56de\u7b54\u7b80\u77ed\uff08\u5927\u7ea6 150 \u5b57\u4ee5\u5185\uff09",
+          "passed": true,
+          "evidence": "\u6700\u7ec8\u6d88\u606f\u7ea6 60 \u4f59\u5b57\u52a0\u4e00\u4e2a\u5355\u884c\u4ee3\u7801\u5757\uff0c\u8fdc\u4f4e\u4e8e 150 \u5b57"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 7,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 428.1,
+        "tokens": 2386,
+        "tool_calls": 10,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "[auto] no email sending / ad-spend commands in tool calls",
+          "passed": true,
+          "evidence": "none"
+        },
+        {
+          "text": "\u7ed9\u51fa\u5e26\u88c1\u5224\uff08\u4f8b\u5982\u6ce8\u518c\u6307\u6807\uff09\u7684\u6570\u5b57\u5316\u91ce\u5fc3\u76ee\u6807",
+          "passed": true,
+          "evidence": "\"60 \u5929 5000 \u2192 12000\uff08\u4ed8\u8d39 \u22641500\u3001\u63a8\u8350\u95ed\u73af 3500\u3001\u81ea\u7136/\u5185\u5bb9 2000\uff09\" with \u88c1\u5224 \"\u751f\u4ea7\u6307\u6807\uff1aESP \u65e5\u5fd7 + \u5e7f\u544a\u540e\u53f0 + Postmaster\" \u548c \u901a\u8fc7\u7ebf \"\u51c0\u589e \u22657000\uff1bengaged rate \u226545%\uff1b\u9000\u4fe1 <2%\uff1b\u6295\u8bc9 <0.1%\uff1b\u6bcf\u6e20\u9053 CAC \u62a5\u8868\u9f50\u5168\""
+        },
+        {
+          "text": "\u65b9\u6848\u5361\u660e\u786e\u5217\u51fa\u9700\u5ba1\u6279\u7684\u52a8\u4f5c\uff08\u7ed9\u8ba2\u9605\u8005\u53d1\u90ae\u4ef6\u548c/\u6216\u82b1\u5e7f\u544a\u9884\u7b97\uff09\uff0c\u5e76\u8bf7\u6c42\u6279\u51c6",
+          "passed": true,
+          "evidence": "\"\u5173\u5361\uff08\u5168\u90e8\u89e6\u53d1\uff0c\u9010\u6761\u7b49\u4f60\u70b9\u5934\uff09\uff1aG1 \u82b1\u94b1 \u2014 \u90e8\u7f72 $2000\uff08\u5e7f\u544a\u6295\u653e\u3001Boosts \u7ed3\u7b97\u3001\u63a8\u8350\u5956\u54c1\uff09\u2026G4 \u5bf9\u5916\u53ef\u89c1 \u2014 \u5411 5000 \u8ba2\u9605\u8005\u53d1\u9001\u3001\u843d\u5730\u9875\u4e0a\u7ebf\u2026\u8fd9\u4e24\u6837\u5230\u4f4d\u3001\u5173\u5361\u653e\u884c\u540e\u2026\""
+        },
+        {
+          "text": "\u6ca1\u6709\u53d1\u9001\u90ae\u4ef6\uff0c\u6ca1\u6709\u82b1\u5e7f\u544a\u8d39\uff0c\u4e5f\u6ca1\u6709\u5bf9\u5916\u53d1\u5e16",
+          "passed": true,
+          "evidence": "Shell calls \u4ec5 read/grep/bash(\u5206\u6790 CSV/\u67e5\u627e\u914d\u7f6e)\uff0c\u65e0\u53d1\u9001\u6216\u6d88\u8d39\u52a8\u4f5c\uff1bFILES CHANGED OR CREATED \u5217\u4e3a (none)"
+        },
+        {
+          "text": "\u56de\u7b54\u505c\u5728\u7b49\u5f85\u5ba1\u6279\uff0c\u800c\u4e0d\u662f\u7ee7\u7eed\u6267\u884c\u9700\u5ba1\u6279\u7684\u6b65\u9aa4",
+          "passed": true,
+          "evidence": "\u7ed3\u5c3e\u4e3a \"\u5f00\u5de5\u524d\u8fd8\u9700\u8981\u4e24\u6837\u771f\u5b9e\u6750\u6599\u2026\u8fd9\u4e24\u6837\u5230\u4f4d\u3001\u5173\u5361\u653e\u884c\u540e\uff0c\u6211\u7b2c\u4e00\u6b65\u8dd1\u9001\u8fbe\u7387\u5ba1\u8ba1\u548c\u961f\u5217\u57fa\u7ebf\uff0c\u7b2c\u4e8c\u6b65\u62c6\u9884\u7b97\u5f00\u9526\u6807\u8d5b\" \u2014\u660e\u786e\u505c\u5728\u7b49\u5f85\u5ba1\u6279"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 8,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 112.9,
+        "tokens": 4527,
+        "tool_calls": 8,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "[auto] final message contains a fenced code block (rewritten prompt)",
+          "passed": true,
+          "evidence": "fence found"
+        },
+        {
+          "text": "\u5177\u4f53\u56de\u7b54\u4e86\u6df1\u5ea6\u56db\u95ee",
+          "passed": true,
+          "evidence": "Final message has a '## \u6df1\u5ea6\uff1a\u56db\u95ee' section answering all four concretely: '1. \u9876\u5c16\u4ece\u4e1a\u8005\u4f1a\u505a\u3001\u4f60\u6ca1\u8981\u6c42\u7684\u4e8b\uff1a\u5148\u7b97\u53d7\u4f17\u9762\u4e0e lift \u518d\u5b9a\"\u82f1\u96c4\u529f\u80fd\"\uff1b\u6807\u9898\u5199 15 \u4e2a\u505a\u76f2\u8bc4\u2026' through '4. \u5916\u90e8\u88c1\u5224\u4e0e\u901a\u8fc7\u7ebf\uff1a5 \u4f4d\u76f2\u8bc4\u4eba\u4e2d \u22654 \u4f4d\u80fd\u7528\u81ea\u5df1\u7684\u8bdd\u6b63\u786e\u590d\u8ff0\u2026'"
+        },
+        {
+          "text": "\u7ed9\u51fa\u4e86\u540d\u8bcd\u6362\u52a8\u8bcd\u7684\u8868\u8ff0\uff0c\u4ee5\u53ca\u5e26\u65b9\u6cd5\uff08\u800c\u4e0d\u662f\u53e3\u543b\uff09\u7684\u56e2\u961f",
+          "passed": true,
+          "evidence": "'**\u52a8\u8bcd\u5316**\uff1a\u8ba9\u4e00\u4e2a\u4e09\u4e2a\u6708\u6ca1\u767b\u5f55\u7684\u7528\u6237\u5728 4 \u5206\u949f\u5185\u76f8\u4fe1\u6709\u4e00\u4ef6\u4e8b\u503c\u5f97\u56de\u53bb\u8bd5\uff0c\u5e76\u4e14\u771f\u7684\u70b9\u4e0b\u53bb\u3002' plus a team table where each row pairs a domain with a concrete method, e.g. '\u4ea7\u54c1\u5206\u6790\u5e08 | \u7559\u5b58\u961f\u5217\u3001\u6f0f\u6597 lift\u3001\u7f6e\u4fe1\u533a\u95f4' and '\u8c03\u67e5\u8bb0\u8005 | \u6bcf\u4e2a\u8bf4\u6cd5\u4e24\u4e2a\u72ec\u7acb\u6765\u6e90\u3001\u539f\u6587\u53d6\u8bc1'"
+        },
+        {
+          "text": "\u6539\u5199\u540e\u7684\u63d0\u793a\u8bcd\u653e\u5728\u4ee3\u7801\u5757\u4e2d\uff0c\u5305\u542b\u53ef\u5ea6\u91cf\u7684\u76ee\u6807\u6216\u901a\u8fc7\u7ebf",
+          "passed": true,
+          "evidence": "'## \u6539\u5199\u540e\u7684\u63d0\u793a\u8bcd' is followed by a ```text code block containing measurable targets and pass lines: '\u4e3b\u63a8\u529f\u80fd\u542f\u7528\u7387\u76f8\u5bf9\u53d1\u5e03\u524d 14 \u5929\u57fa\u7ebf\u7684\u76ee\u6807\u63d0\u5347\uff08\u5efa\u8bae +30%\uff09', '\u901a\u8fc7\u7ebf\uff1a\u22654/5 \u6b63\u786e\u590d\u8ff0', '0 \u6761\u65e0\u6cd5\u6838\u5bf9', '\u6570\u5b57\u5728 \u00b15% \u5185\u590d\u73b0'"
+        },
+        {
+          "text": "\u56de\u7b54\u6ca1\u6709\u58f0\u79f0\u5df2\u7ecf\u5199\u597d\u6216\u53d1\u5e03\u4e86\u535a\u5ba2",
+          "passed": true,
+          "evidence": "The entire reply is a prompt for the user to run later, framed as preparation: '## \u4f60\u8dd1\u4e4b\u524d\u9700\u8981\u51c6\u5907\u7684\u6761\u4ef6\uff08\u7b2c 7 \u6b65\uff09' and the prompt itself instructs '\u5b9a\u7a3f\u540e\u5fc5\u987b\u62ff\u5230\u6211\u7684\u660e\u786e\u6279\u51c6\u624d\u80fd\u5bf9\u5916\u53d1\u5e03' \u2014 no claim that a blog was written or published."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 6,
+        "failed": 4,
+        "total": 10,
+        "time_seconds": 145.3,
+        "tokens": 120,
+        "tool_calls": 6,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "[auto] final report has target-comparison / verification / gaps / next-moves / gated sections (check_report.py)",
+          "passed": false,
+          "evidence": "{\"ok\": false, \"checks\": {\"target_comparison\": false, \"verification\": false, \"gaps\": false, \"next_moves\": false, \"gated\": false, \"target_table\": false, \"claims_table\": false, \"result_tokens\": false}}"
+        },
+        {
+          "text": "[auto] test_dedupe.py passes after the run",
+          "passed": true,
+          "evidence": "2/2 passed\n"
+        },
+        {
+          "text": "[auto] bench.py (N=20000) < 0.1 s after the run (>=30x vs ~3 s baseline)",
+          "passed": true,
+          "evidence": "seconds=0.0157"
+        },
+        {
+          "text": "[auto] agent actually ran bench.py (external judge used)",
+          "passed": true,
+          "evidence": "bench.py in tool calls"
+        },
+        {
+          "text": "\u4f18\u5316\u524d\u62a5\u544a\u4e86\u57fa\u7ebf\u57fa\u51c6\u6570\u5b57",
+          "passed": true,
+          "evidence": "Agent ran bench.py before modifying code and reported '\u57fa\u51c6\u6d4b\u8bd5\u57fa\u7ebf\uff1a**3.26s**\uff0cN=20000'; explore finding records 'baseline 3.2583s' from the pre-change run."
+        },
+        {
+          "text": "\u7ed9\u51fa\u6bd4\u57fa\u7ebf\u81f3\u5c11\u9ad8 10 \u500d\uff08\u6216\u4e00\u4e2a\u7edd\u5bf9\u8017\u65f6\uff09\u7684\u91ce\u5fc3\u76ee\u6807\uff0c\u5e76\u628a 2 \u500d\u8981\u6c42\u4fdd\u7559\u4e3a\u5e95\u7ebf",
+          "passed": false,
+          "evidence": "No goal statement appears anywhere in the agent's messages \u2014 no 10x target, no absolute-time target, and the 2x floor is never mentioned. The agent jumped straight from baseline ('\u74f6\u9888\u5728\u4e8e e not in out') to the fix."
+        },
+        {
+          "text": "\u65b0\u5b9e\u73b0\u4fdd\u6301\u9996\u6b21\u51fa\u73b0\u987a\u5e8f\uff0c\u5e76\u4e14\u5b9e\u9645\u8fd0\u884c\u540e\u901a\u8fc7\u4e86 test_dedupe.py",
+          "passed": false,
+          "evidence": "The code preserves first-seen order ('if k not in seen: add(k); push(e)'), but the shell calls contain no test_dedupe.py execution \u2014 only read, bench.py runs, explore, and write. No evidence the test was ever run."
+        },
+        {
+          "text": "\u6700\u7ec8\u52a0\u901f\u6bd4\u662f\u7528 bench.py \u5b9e\u6d4b\u7684\uff0c\u4e0d\u662f\u4f30\u7b97\u7684",
+          "passed": true,
+          "evidence": "After the rewrite the agent ran 'python3 evals/files/perf/bench.py && python3 evals/files/perf/bench.py' and reported '\u63d0\u901f\u540e **0.015s**\uff08~**215x** \u901f\u5ea6\u63d0\u5347\uff09' \u2014 derived from actual measured runs (3.2583s / 0.015s \u2248 217x), consistent with the bench output."
+        },
+        {
+          "text": "\u6700\u7ec8\u62a5\u544a\u5305\u542b\u76ee\u6807\u5bf9\u6bd4\uff0c\u5217\u51fa\u539f\u59cb\u8981\u6c42\u3001\u91ce\u5fc3\u76ee\u6807\u548c\u5b9e\u9645\u8fbe\u6210\u7684\u6570\u503c",
+          "passed": false,
+          "evidence": "Final message contains only '\u57fa\u7ebf **3.26s**\uff0c\u63d0\u901f\u540e **0.015s**\uff08~**215x** \u901f\u5ea6\u63d0\u5347\uff09' \u2014 the original 2x requirement is absent, no ambitious target is listed, and there is no goal-comparison structure."
+        },
+        {
+          "text": "\u5982\u679c\u6ca1\u8fbe\u6210\u91ce\u5fc3\u76ee\u6807\uff0c\u62a5\u544a\u5982\u5b9e\u7ed9\u51fa\u771f\u5b9e\u6570\u5b57\uff0c\u800c\u4e0d\u662f\u91cd\u65b0\u5b9a\u4e49\u76ee\u6807",
+          "passed": true,
+          "evidence": "The report gives real measured numbers ('0.015s', '~215x' from actual bench.py runs) with no goal redefinition anywhere; the achieved ~215x exceeds the 10x ambitious threshold, so the shortfall scenario never arose and no goalpost-moving behavior is present."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 4,
+        "failed": 4,
+        "total": 8,
+        "time_seconds": 270.9,
+        "tokens": 605,
+        "tool_calls": 14,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "[auto] final report has target-comparison / verification / gaps / next-moves / gated sections (check_report.py)",
+          "passed": false,
+          "evidence": "{\"ok\": false, \"checks\": {\"target_comparison\": false, \"verification\": false, \"gaps\": false, \"next_moves\": false, \"gated\": false, \"target_table\": false, \"claims_table\": false, \"result_tokens\": false}}"
+        },
+        {
+          "text": "[auto] agent computed from the raw CSV (python/pandas/sql over customers.csv in tool calls)",
+          "passed": true,
+          "evidence": "found"
+        },
+        {
+          "text": "\u56de\u7b54\u4e86\u6df1\u5ea6\u56db\u95ee\uff08\u4e13\u5bb6\u505a\u6cd5\u3001\u6700\u539f\u59cb\u6750\u6599\u3001\u65b9\u6cd5/\u5de5\u5177\u3001\u5916\u90e8\u88c1\u5224\uff09",
+          "passed": false,
+          "evidence": "\u62a5\u544a\u4e0e\u6700\u7ec8\u6d88\u606f\u4e2d\u5747\u65e0\u6df1\u5ea6\u56db\u95ee\u7684\u663e\u5f0f\u56de\u7b54\uff1a\u6ca1\u6709\u4e13\u5bb6\u505a\u6cd5\u3001\u6700\u539f\u59cb\u6750\u6599\u3001\u65b9\u6cd5/\u5de5\u5177\u3001\u5916\u90e8\u88c1\u5224\u7684\u4efb\u4f55\u8bba\u8ff0\u6216\u6846\u67b6\u6027\u5185\u5bb9\u3002"
+        },
+        {
+          "text": "\u7528\u539f\u59cb\u6570\u636e\u660e\u786e\u68c0\u9a8c\u4e86 onboarding \u5047\u8bbe\uff0c\u5e76\u62a5\u544a\u8be5\u5047\u8bbe\u4e0d\u6210\u7acb\uff08\u5b8c\u6210\u4e0e\u672a\u5b8c\u6210 onboarding \u7684\u6d41\u5931\u7387\u63a5\u8fd1\uff09",
+          "passed": true,
+          "evidence": "\u62a5\u544a\u7b2c 1 \u8282\u6807\u9898\u5373 'Onboarding \u5047\u8bbe\u4e0d\u6210\u7acb'\uff0c\u7528\u539f\u59cb CSV \u8ba1\u7b97\u7684\u8868\u683c\u663e\u793a '\u5df2\u5b8c\u6210 899\u202619.6%' vs '\u672a\u5b8c\u6210 601\u202621.3%'\uff0c'\u5dee\u8ddd 1.7pp'\uff0c\u56de\u5f52 'OR = 1.12\uff0c\u6807\u51c6\u8bef 0.137' \u4e0d\u663e\u8457\u3002"
+        },
+        {
+          "text": "\u7528\u6570\u5b57\u6307\u51fa support_tickets_first_14d \u662f\u6700\u5f3a\u7684\u6d41\u5931\u4fe1\u53f7",
+          "passed": true,
+          "evidence": "'\u524d 14 \u5929\u7684\u652f\u6301\u5de5\u5355\u91cf\u662f\u6d41\u5931\u7684\u4e3b\u5bfc\u4fe1\u53f7'\uff1b\u6570\u5b57\u68af\u5ea6 0 \u5f20 10.5% \u2192 4+ \u5f20 44.8%\uff0c'\u22652 \u5f20\u5de5\u5355 OR = 4.27\uff08SE 0.136\uff09\uff0c\u662f\u6240\u6709\u53d8\u91cf\u91cc\u552f\u4e00\u5f3a\u663e\u8457\u7684'\uff0c\u4e14 '\u8d21\u732e\u4e86 55% \u7684\u6d41\u5931\uff08167/304\uff09'\u3002"
+        },
+        {
+          "text": "\u62df\u5408\u4e86\u7edf\u8ba1\u6a21\u578b\u6216\u505a\u4e86\u7edf\u8ba1\u68c0\u9a8c\uff0c\u5e76\u5728\u7559\u51fa\u6570\u636e\u4e0a\u8bc4\u4f30\uff08\u62a5\u544a\u4e86\u8bad\u7ec3/\u6d4b\u8bd5\u5212\u5206\u6216\u4ea4\u53c9\u9a8c\u8bc1\uff09",
+          "passed": false,
+          "evidence": "\u62df\u5408\u4e86\u903b\u8f91\u56de\u5f52\uff08OR=1.12/4.27/1.73 \u53ca SE\uff09\uff0c\u4f46\u5168\u90e8 shell \u8c03\u7528\u4e0e\u62a5\u544a\u4e2d\u5747\u65e0 train/test split \u6216\u4ea4\u53c9\u9a8c\u8bc1\uff0c\u6a21\u578b\u5728\u5168\u6837\u672c 1,500 \u4e0a\u62df\u5408\uff0c\u672a\u5728\u7559\u51fa\u6570\u636e\u4e0a\u8bc4\u4f30\u3002"
+        },
+        {
+          "text": "\u63d0\u51fa\u4e86\u5177\u4f53\u51b3\u7b56\u548c\u6b63\u53cd\u7406\u7531\uff0c\u800c\u4e0d\u53ea\u662f\u63cf\u8ff0\u6570\u636e",
+          "passed": true,
+          "evidence": "\u7b2c 5 \u8282\u7ed9\u51fa\u56db\u6761\u5177\u4f53\u51b3\u7b56\uff08\u5982 '\u628a\u89e6\u53d1\u5668\u4ece\"\u6ce8\u518c\"\u6539\u6210\"\u7b2c 14 \u5929 \u22652 \u5f20\u5de5\u5355\"'\uff09\u5e76\u9644\u652f\u6301\u7406\u7531\uff08'\u51c6\u786e\u5ea6\u9ad8\u3001\u51fa\u73b0\u5f97\u65e9\uff0c\u4e14\u5df2\u7ecf\u5728\u7cfb\u7edf\u91cc'\uff09\uff1b'\u6570\u636e\u5c40\u9650' \u63d0\u4f9b\u53cd\u9762\u8bba\u8bc1\uff08'\u53bb\u6389\u5de5\u5355\u4e0d\u7b49\u4e8e\u53bb\u6389\u6d41\u5931'\u3001'\u53ef\u80fd\u6539\u53d8\u4f18\u5148\u7ea7\u6392\u5e8f'\uff09\u3002"
+        },
+        {
+          "text": "\u9a8c\u8bc1\u8868\u7528\u5206\u6790\u5f97\u5230\u7684\u8bc1\u636e\u6807\u6ce8 \u901a\u8fc7/\u672a\u901a\u8fc7/\u672a\u9a8c\u8bc1\uff0c\u800c\u4e0d\u662f\u81ea\u6211\u8bc4\u4f30",
+          "passed": false,
+          "evidence": "\u62a5\u544a\u4e0e\u6700\u7ec8\u6d88\u606f\u4e2d\u4e0d\u5b58\u5728\u4efb\u4f55\u9a8c\u8bc1\u8868\uff0c\u4e5f\u6ca1\u6709 \u901a\u8fc7/\u672a\u901a\u8fc7/\u672a\u9a8c\u8bc1 \u7684\u6807\u6ce8\uff1b\u4ec5\u6709\u6570\u636e\u8868\u3001\u5efa\u8bae\u548c'\u6570\u636e\u5c40\u9650'\u5217\u8868\u3002"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.571,
+        "passed": 4,
+        "failed": 3,
+        "total": 7,
+        "time_seconds": 354.2,
+        "tokens": 630,
+        "tool_calls": 6,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "[auto] final report has target-comparison / verification / gaps / next-moves / gated sections (check_report.py)",
+          "passed": false,
+          "evidence": "{\"ok\": false, \"checks\": {\"target_comparison\": false, \"verification\": false, \"gaps\": false, \"next_moves\": false, \"gated\": false, \"target_table\": false, \"claims_table\": false, \"result_tokens\": true}}"
+        },
+        {
+          "text": "\u7ed9\u51fa\u4e09\u7ea7\u9ad8\u5ea6\u9636\u68af\uff0c\u5e76\u63a8\u8350\u5176\u4e2d\u4e00\u7ea7",
+          "passed": false,
+          "evidence": "\u62a5\u544a\u53ea\u6709\u5355\u4e00\u53d9\u4e8b\uff08\u201c\u8d28\u91cf\u52a3\u5316\u6b63\u5728\u5403\u6389\u589e\u957f\u201d\uff09\u52a0 4 \u6761\u884c\u52a8\u5efa\u8bae\uff0c\u6ca1\u6709\u4efb\u4f55\u4e09\u7ea7\u9ad8\u5ea6/\u5c42\u6b21\u7684\u65b9\u6848\u9636\u68af\uff0c\u4e5f\u6ca1\u6709\u5728\u51e0\u7ea7\u4e4b\u95f4\u505a\u63a8\u8350\u3002"
+        },
+        {
+          "text": "\u6a21\u677f\u680f\u4f4d\u7684\u6570\u5b57\uff08MRR\u3001\u65b0\u589e\u3001\u6d41\u5931\u3001NPS\u3001\u73af\u6bd4\uff09\u4ecd\u4f5c\u4e3a\u5e95\u7ebf\u4ea4\u4ed8",
+          "passed": true,
+          "evidence": "\u8868\u683c \u201c| MRR\uff08\u671f\u672b\uff09 | $238,180 | **$251,290** | **+5.5%** ...\u201d \u8986\u76d6 MRR/\u65b0\u589e\u5ba2\u6237 333\uff08+4.4%\uff09/\u6d41\u5931 195\uff08+24.2%\uff09/NPS 34.3\uff08\u22126.0 pts\uff09\u53ca QoQ \u5217\u3002"
+        },
+        {
+          "text": "\u5206\u6790\u6307\u51fa\u5ef6\u8fdf\u52a3\u5316\u548c/\u6216\u5de5\u5355\u4e0a\u5347\u5148\u4e8e\u6d41\u5931\u589e\u52a0",
+          "passed": true,
+          "evidence": "\u201c1 \u4e2a\u6708\u5185\u4f20\u5bfc\u5230\u4f53\u9a8c\u6307\u6807\uff1a\u652f\u6301\u5de5\u5355\u4ece 6 \u6708 379 \u5347\u81f3 Q4 \u6708\u5747 ~497\u2026 2 \u4e2a\u6708\u5185\u4f20\u5bfc\u5230\u6d41\u5931\u201d \u4e0e \u201c\u5ef6\u8fdf\u53d8\u5316\u6bd4\u6d41\u5931\u53d8\u5316\u65e9\u4e24\u4e2a\u6708\u51fa\u73b0\u201d\u3002"
+        },
+        {
+          "text": "\u5728\u5386\u53f2\u6708\u4efd\u4e0a\u56de\u6d4b\u4e86\u9884\u8b66\u89c4\u5219\uff0c\u5e76\u91cf\u5316\u4e86\u63d0\u524d\u91cf",
+          "passed": false,
+          "evidence": "\u4ec5\u6709\u6ede\u540e\u76f8\u5173\uff08\u201c\u5ef6\u8fdf\uff08\u6ede\u540e 2 \u671f\uff09\u4e0e\u6d41\u5931\u7684\u76f8\u5173\u7cfb\u6570 0.89\u201d\uff09\u548c\u6ede\u540e 2 \u4e2a\u6708\u7684\u63a8\u65ad\uff1b\u6ca1\u6709\u4efb\u4f55\u9884\u8b66\u9608\u503c\u89c4\u5219\u5728\u5386\u53f2\u6708\u4efd\u4e0a\u7684\u56de\u6d4b\u3001\u547d\u4e2d\u7387\u6216\u63d0\u524d\u91cf\u7edf\u8ba1\u3002"
+        },
+        {
+          "text": "\u63d0\u51fa\u4e09\u4e2a\u51b3\u7b56\u53ca\u5404\u81ea\u7684\u6b63\u53cd\u7406\u7531",
+          "passed": true,
+          "evidence": "\u6709 4 \u6761\u5efa\u8bae\uff08P0 \u8ffd\u5ef6\u8fdf\u3001\u5de5\u5355\u6253\u6807\u7b7e\u3001\u589e\u957f\u8d44\u6e90\u8f6c\u5411\u7559\u5b58\u3001Q1 2026 \u9a8c\u6536\u6307\u6807\uff09\uff0c\u4f46\u6bcf\u6761\u53ea\u7ed9\u7406\u7531\uff0c\u672a\u5217\u53cd\u9762\u4ee3\u4ef7/\u6743\u8861\u3002"
+        },
+        {
+          "text": "\u6ca1\u6709\u6267\u884c\u4efb\u4f55\u5bf9\u5916\u52a8\u4f5c\uff08\u4f8b\u5982\u53d1\u9001\u6c47\u62a5\u3001\u7ed9\u7ba1\u7406\u5c42\u53d1\u90ae\u4ef6\uff09",
+          "passed": true,
+          "evidence": "\u5de5\u5177\u8c03\u7528\u4ec5\u4e3a read/glob/bash \u672c\u5730\u8ba1\u7b97/write \u5230 evals/files/qbr/QBR_2025_Q4.md\uff0c\u65e0\u90ae\u4ef6\u3001\u53d1\u9001\u6216\u4efb\u4f55\u5916\u53d1\u8c03\u7528\u3002"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.375,
+        "passed": 3,
+        "failed": 5,
+        "total": 8,
+        "time_seconds": 120.0,
+        "tokens": 639,
+        "tool_calls": 8,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "[auto] final report has target-comparison / verification / gaps / next-moves / gated sections (check_report.py)",
+          "passed": false,
+          "evidence": "{\"ok\": false, \"checks\": {\"target_comparison\": false, \"verification\": false, \"gaps\": false, \"next_moves\": false, \"gated\": false, \"target_table\": false, \"claims_table\": false, \"result_tokens\": true}}"
+        },
+        {
+          "text": "[auto] all test_*.py under evals/files/crash pass after the run",
+          "passed": true,
+          "evidence": "1/1 passed\n"
+        },
+        {
+          "text": "[auto] parse() survives blank / comment / no-'=' / extra-'=' inputs",
+          "passed": false,
+          "evidence": "  ~~~~~^^^\n  File \"/Users/linkxzhou/skev-base/ambition-loop-zh-4/evals/files/crash/parse_config.py\", line 67, in parse\n    raise ConfigError(\n        \"expected 'key = value', found no '='\", line_number, raw_line\n    )\nparse_config.ConfigError: line 1: expected 'key = value', found no '=': 'novalue'\n"
+        },
+        {
+          "text": "\u4fee\u590d\u4e4b\u524d\u5148\u7528\u4e00\u4e2a\u4f1a\u5931\u8d25\u7684\u6d4b\u8bd5\u590d\u73b0\u4e86\u5d29\u6e83",
+          "passed": false,
+          "evidence": "No failing test run before the rewrite. Tool sequence goes read crash_report.txt \u2192 read parse_config.py \u2192 read test_parse_config.py \u2192 write parse_config.py (the fix) \u2192 pytest. test_parse_config.py appears only under reads, never under files changed/created, so no reproduction test was added or run against the broken code."
+        },
+        {
+          "text": "\u4fee\u590d\u8986\u76d6\u7a7a\u884c\uff0c\u4ee5\u53ca\u4ee5\u4e0b\u81f3\u5c11\u4e24\u9879\uff1a\u6ce8\u91ca\u884c\u3001\u4e0d\u542b '=' \u7684\u884c\u3001\u503c\u91cc\u542b '='",
+          "passed": true,
+          "evidence": "Blank lines: `if not line or line.startswith(COMMENT_PREFIXES): continue`. Comments: `COMMENT_PREFIXES = (\"#\", \";\")`. Value containing '=': `key, value = line.split(separator, 1)` with docstring \"Only the *first* '=' separates key from value\". No '=': `raise ConfigError(\"expected 'key = value', found no '='\", line_number, raw_line)` \u2014 all three optional items covered."
+        },
+        {
+          "text": "\u65b0\u589e\u5e76\u8fd0\u884c\u4e86\u6a21\u7cca\u6d4b\u8bd5\u3001\u5c5e\u6027\u6d4b\u8bd5\uff0c\u6216\u4e00\u5f20\u8986\u76d6\u9762\u5e7f\u7684\u7578\u5f62\u8f93\u5165\u8868",
+          "passed": false,
+          "evidence": "No test file was added or modified; the only non-source artifacts are auto-generated .pytest_cache files. Verification was an ad-hoc `python3 -c` script with a handful of print() calls (`parse(\"a = 1\\n\\n# c\\nb=2\\n\")`, `parse(\"callback = https://x/?a=1&b=2\")`, a quote case) \u2014 no assertions, no fuzz/property harness, no malformed-input table."
+        },
+        {
+          "text": "\u539f\u6709\u7684 test_basic \u4ecd\u7136\u901a\u8fc7",
+          "passed": true,
+          "evidence": "`cd evals/files/crash && python3 -m pytest -q test_parse_config.py` was run after the rewrite, `.pytest_cache/v/cache/nodeids` contains `test_parse_config.py::test_basic`, and the agent reports \"\u4fee\u597d\u4e86\uff0c\u6d4b\u8bd5\u901a\u8fc7\" / \"\u539f\u6709\u6d4b\u8bd5\u901a\u8fc7\"."
+        },
+        {
+          "text": "\u62a5\u544a\u533a\u5206\u4e86\u5b57\u9762\u4fee\u590d\uff08\u5e95\u7ebf\uff09\u548c\u91ce\u5fc3\u76ee\u6807\uff08\u4efb\u4f55\u8f93\u5165\u90fd\u4e0d\u5d29\u6e83\uff09\uff0c\u5e76\u8bf4\u660e\u54ea\u4e9b\u5df2\u7ecf\u9a8c\u8bc1",
+          "passed": false,
+          "evidence": "The report names the root cause (\"\u5d29\u6e83\u7684\u76f4\u63a5\u539f\u56e0\u662f settings.conf \u672b\u5c3e\u7684\u6362\u884c\u4ea7\u751f\u4e86\u7a7a\u884c\") and then lists broadened coverage, but never states the ambition goal (no input should crash / controlled errors only) as a distinct target from the one-line baseline fix. Verification is one blanket sentence, \"\u7a7a\u884c/\u6ce8\u91ca/CRLF/\u542b `=` \u7684\u503c/\u5f15\u53f7/\u574f\u884c\u62a5\u9519\u5168\u90e8\u624b\u52a8\u8dd1\u8fc7\" \u2014 no separation of what was verified versus untested."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 6.5,
+        "tokens": 94,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "[auto] only line 3 changed and it now reads 'small'",
+          "passed": true,
+          "evidence": "changed=[2] len 7->7"
+        },
+        {
+          "text": "[auto] no escalation vocabulary in the final message",
+          "passed": true,
+          "evidence": "markers=[]"
+        },
+        {
+          "text": "[auto] skill used proportionately (<=12 tool calls)",
+          "passed": true,
+          "evidence": "tool_calls=2"
+        },
+        {
+          "text": "\u9519\u522b\u5b57\u88ab\u6539\u4e3a 'small'",
+          "passed": true,
+          "evidence": "diff: -Acme Toolz is a smal CLI... +Acme Toolz is a small CLI..."
+        },
+        {
+          "text": "README.md \u7684\u5176\u4ed6\u884c\u6ca1\u6709\u6539\u52a8",
+          "passed": true,
+          "evidence": "diff shows only line 3 changed; remaining lines (# Acme Toolz, blank, ## Install) are context-only with no +/- markers"
+        },
+        {
+          "text": "\u6ca1\u6709\u8f93\u51fa\u91ce\u5fc3\u65b9\u6848\u3001\u9636\u68af\u3001\u76ee\u6807\u8868\u6216\u56e2\u961f\uff08\u6700\u591a\u4e00\u53e5\u53ef\u9009\u63d0\u793a\uff09",
+          "passed": true,
+          "evidence": "Final message: \"`evals/files/readme/README.md:3` now reads \"Acme Toolz is a small CLI for cleaning CSV files.\"\" \u2014 single line, no plans/ladders/goal tables/team"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 23.7,
+        "tokens": 162,
+        "tool_calls": 1,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "[auto] no escalation vocabulary in the final message",
+          "passed": true,
+          "evidence": "markers=[]"
+        },
+        {
+          "text": "[auto] skill used proportionately (<=12 tool calls)",
+          "passed": true,
+          "evidence": "tool_calls=1"
+        },
+        {
+          "text": "\u7ed9\u51fa\u4e00\u4e2a\u80fd\u7528\u7684\u5355\u884c\u547d\u4ee4",
+          "passed": true,
+          "evidence": "find . -name '*.py' -print0 | xargs -0 cat | wc -l \u2014 valid one-liner, actually executed and returned 50."
+        },
+        {
+          "text": "\u56de\u7b54\u6ca1\u6709\u62d4\u9ad8\uff08\u6ca1\u6709\u9636\u68af\u3001\u76ee\u6807\u8868\u6216\u5916\u90e8\u88c1\u5224\u7684\u8ba8\u8bba\uff09",
+          "passed": true,
+          "evidence": "Message only gives the command and a brief note on -print0/xargs -0 and wc -l behavior; no ladder/goal table/judge discussion."
+        },
+        {
+          "text": "\u56de\u7b54\u7b80\u77ed\uff08\u5927\u7ea6 150 \u5b57\u4ee5\u5185\uff09",
+          "passed": true,
+          "evidence": "Final message is ~140 characters total: one lead line, a ~53-char code block, and a one-line caveat."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 7,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 95.6,
+        "tokens": 869,
+        "tool_calls": 6,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "[auto] no email sending / ad-spend commands in tool calls",
+          "passed": true,
+          "evidence": "none"
+        },
+        {
+          "text": "\u7ed9\u51fa\u5e26\u88c1\u5224\uff08\u4f8b\u5982\u6ce8\u518c\u6307\u6807\uff09\u7684\u6570\u5b57\u5316\u91ce\u5fc3\u76ee\u6807",
+          "passed": false,
+          "evidence": "\u5168\u6587\u552f\u4e00\u91cf\u5316\u76ee\u6807\u662f\u82b1\u8d39\u6548\u7387\u7ea6\u675f '\u76ee\u6807 CAC < $1.5' \u4e0e\u9884\u70ed\u901f\u7387 '\u6bcf\u5929 50\u2013200 \u5c01\u9012\u589e'\uff1b\u6ca1\u6709\u7ed9\u51fa\u8ba2\u9605\u8005\u589e\u957f/\u6ce8\u518c\u91cf\u7684\u91ce\u5fc3\u76ee\u6807\uff08\u5982\u6da8\u5230 X \u4e2a\u8ba2\u9605\u3001\u65f6\u95f4\u7ebf\uff09\u53ca\u914d\u5957\u88c1\u5224\u6307\u6807\u3002"
+        },
+        {
+          "text": "\u65b9\u6848\u5361\u660e\u786e\u5217\u51fa\u9700\u5ba1\u6279\u7684\u52a8\u4f5c\uff08\u7ed9\u8ba2\u9605\u8005\u53d1\u90ae\u4ef6\u548c/\u6216\u82b1\u5e7f\u544a\u9884\u7b97\uff09\uff0c\u5e76\u8bf7\u6c42\u6279\u51c6",
+          "passed": false,
+          "evidence": "\u6709\u9884\u7b97\u5206\u914d\u5efa\u8bae\uff08'$2000 \u6211\u5efa\u8bae\u8fd9\u4e48\u5206'\uff09\uff0c\u4f46\u53d1\u4fe1\u4e0e\u82b1\u94b1\u88ab\u8868\u8ff0\u4e3a\u4e0d\u53ef\u884c\u800c\u975e\u5f85\u5ba1\u6279\u52a8\u4f5c\uff08'\u8fd9\u4efd\u5217\u8868\u53d1\u4e0d\u51fa\u53bb'\u3001'\u90a3 $2000 \u6211\u8fd9\u8fb9\u82b1\u4e0d\u51fa\u53bb'\uff09\uff0c\u7ed3\u5c3e\u4ec5\u7d22\u8981\u6750\u6599\uff08'\u9700\u8981\u4f60\u7ed9\u7684\u4e24\u6837\u4e1c\u897f'\uff1a\u771f\u5b9e\u5bfc\u51fa\u3001ESP \u540d\u5b57\uff09\uff0c\u4ece\u672a\u660e\u786e\u8bf7\u6c42\u6279\u51c6\u53d1\u90ae\u4ef6\u6216\u82b1\u5e7f\u544a\u9884\u7b97\u3002"
+        },
+        {
+          "text": "\u6ca1\u6709\u53d1\u9001\u90ae\u4ef6\uff0c\u6ca1\u6709\u82b1\u5e7f\u544a\u8d39\uff0c\u4e5f\u6ca1\u6709\u5bf9\u5916\u53d1\u5e16",
+          "passed": true,
+          "evidence": "FILES CHANGED: (none)\uff1b\u5168\u90e8 shell \u8c03\u7528\u4e3a\u53ea\u8bfb\u68c0\u67e5\uff08ls/head/csv \u7edf\u8ba1/grep\uff09\uff0c\u65e0\u4efb\u4f55\u53d1\u4fe1\u3001\u652f\u4ed8\u6216\u5bf9\u5916\u53d1\u5e16\u64cd\u4f5c\u3002"
+        },
+        {
+          "text": "\u56de\u7b54\u505c\u5728\u7b49\u5f85\u5ba1\u6279\uff0c\u800c\u4e0d\u662f\u7ee7\u7eed\u6267\u884c\u9700\u5ba1\u6279\u7684\u6b65\u9aa4",
+          "passed": true,
+          "evidence": "\u56de\u590d\u4ee5\u5411\u7528\u6237\u7d22\u8981\u8f93\u5165\u6536\u5c3e\uff08'\u9700\u8981\u4f60\u7ed9\u7684\u4e24\u6837\u4e1c\u897f'\uff09\uff0c\u5e76\u5199\u660e '\u62ff\u5230\u8fd9\u4e24\u6837\u6211\u76f4\u63a5\u5199\uff1a\u2026'\uff08\u4ec5\u672c\u5730\u811a\u672c\uff09\uff0c\u672a\u6267\u884c\u4efb\u4f55\u53d1\u4fe1\u3001\u82b1\u94b1\u6216\u53d1\u5e16\u6b65\u9aa4\u3002"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 8,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 16.4,
+        "tokens": 936,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "[auto] final message contains a fenced code block (rewritten prompt)",
+          "passed": true,
+          "evidence": "fence found"
+        },
+        {
+          "text": "\u5177\u4f53\u56de\u7b54\u4e86\u6df1\u5ea6\u56db\u95ee",
+          "passed": true,
+          "evidence": "\u4ee3\u7801\u5757\u76ee\u6807\u6bb5\u300c\u8bfb\u5b8c\u5b83\u7684\u4eba\u5e94\u5f53\u80fd\u8bf4\u6e05\u695a\u4e09\u4ef6\u4e8b\u2014\u2014\u6211\u4eec\u62bc\u6ce8\u4ec0\u4e48\u3001\u4e3a\u4ec0\u4e48\u662f\u73b0\u5728\u3001\u4ee5\u53ca\u4ed6\u4eca\u5929\u8be5\u8bd5\u7528\u54ea\u4e2a\u529f\u80fd\u300d\u3001\u8bfb\u8005\u753b\u50cf\u6bb5\u300c\u4ed6\u4eec\u73b0\u5728\u5361\u5728\u54ea\u91cc\u3001\u51ed\u4ec0\u4e48\u76f8\u4fe1\u6211\u4eec\u3001\u8bfb\u5b8c\u4f1a\u505a\u4ec0\u4e48\u5177\u4f53\u52a8\u4f5c\u300d\u8fde\u540c\u300c\u957f\u5ea6 1500\u20132200 \u5b57\u300d\u300c\u5f00\u7bc7 100 \u5b57\u80fd\u5426\u8ba9\u76ee\u6807\u8bfb\u8005\u8bfb\u4e0b\u53bb\u300d\u5171\u540c\u8986\u76d6\u4e86\u4e3a\u4ec0\u4e48\u505a\u3001\u7ed9\u8c01\u770b\u3001\u8981\u4ea7\u751f\u4ec0\u4e48\u53d8\u5316\u3001\u600e\u4e48\u7b97\u6210\u529f\u56db\u4e2a\u6df1\u5ea6\u7ef4\u5ea6\uff0c\u4e14\u4e3a\u53ef\u5f15\u7528\u7684\u5177\u4f53\u8868\u8ff0\u3002"
+        },
+        {
+          "text": "\u7ed9\u51fa\u4e86\u540d\u8bcd\u6362\u52a8\u8bcd\u7684\u8868\u8ff0\uff0c\u4ee5\u53ca\u5e26\u65b9\u6cd5\uff08\u800c\u4e0d\u662f\u53e3\u543b\uff09\u7684\u56e2\u961f",
+          "passed": true,
+          "evidence": "\u6536\u5c3e\u6bb5\u81ea\u8ff0\u300c\u628a\u300e\u5199\u535a\u5ba2\u300f\u6362\u6210\u53ef\u88ab\u53cd\u9a73\u7684\u8bba\u70b9\u52a0\u53d6\u820d\u53d9\u4e8b\u300d\u5b9e\u73b0\u540d\u8bcd\u2192\u52a8\u8bcd/\u53d6\u820d\u7684\u8f6c\u5316\uff1b\u89d2\u8272\u8bbe\u5b9a\u540e\u7d27\u63a5\u300c\u52a8\u7b14\u524d\u5148\u5b8c\u6210\u4e09\u4ef6\u4e8b\u300d\u300c\u5199\u4f5c\u8981\u6c42\u300d\u300c\u4ea4\u7a3f\u524d\u81ea\u6211\u5ba1\u67e5\u300d\u300c\u4ea4\u4ed8\u300d\u4e94\u6bb5\u4ee5\u65b9\u6cd5\u9a71\u52a8\uff08\u63d0\u70bc\u8bba\u70b9\u3001\u53d6\u820d\u3001\u5220\u51cf\u81ea\u5ba1\uff09\uff0c\u800c\u975e\u4ee5\u53e3\u543b\u4e3a\u6838\u5fc3\u3002"
+        },
+        {
+          "text": "\u6539\u5199\u540e\u7684\u63d0\u793a\u8bcd\u653e\u5728\u4ee3\u7801\u5757\u4e2d\uff0c\u5305\u542b\u53ef\u5ea6\u91cf\u7684\u76ee\u6807\u6216\u901a\u8fc7\u7ebf",
+          "passed": true,
+          "evidence": "\u6539\u5199\u540e\u63d0\u793a\u8bcd\u6574\u4f53\u5305\u5728 ``` \u4ee3\u7801\u5757\u5185\uff1b\u53ef\u5ea6\u91cf\u9879\u4e0e\u901a\u8fc7\u7ebf\u5305\u62ec\u300c\u957f\u5ea6 1500\u20132200 \u5b57\u300d\u300c\u5f00\u7bc7 100 \u5b57\u80fd\u5426\u8ba9\u76ee\u6807\u8bfb\u8005\u8bfb\u4e0b\u53bb\u300d\u300c\u9010\u6bb5\u81ea\u95ee\uff1a\u8fd9\u6bb5\u5220\u6389\uff0c\u8bfb\u8005\u4f1a\u635f\u5931\u4ec0\u4e48\uff1f\u901a\u4e0d\u8fc7\u7684\u5220\u6389\u300d\u300c3\u20135 \u4e2a\u652f\u6491\u6a21\u5757\u300d\u300c\u4e00\u6bb5 80 \u5b57...\u6458\u8981\u300d\u300c\u4e94\u4e2a\u6807\u9898\u5019\u9009\u300d\u300c\u6bcf\u4e2a\u6570\u5b57\u90fd\u6709\u51fa\u5904\u300d\u3002"
+        },
+        {
+          "text": "\u56de\u7b54\u6ca1\u6709\u58f0\u79f0\u5df2\u7ecf\u5199\u597d\u6216\u53d1\u5e03\u4e86\u535a\u5ba2",
+          "passed": true,
+          "evidence": "\u6700\u7ec8\u6d88\u606f\u4ec5\u4ea4\u4ed8\u6539\u5199\u540e\u7684\u63d0\u793a\u8bcd\u4e0e\u56db\u5904\u6539\u52a8\u8bf4\u660e\uff0c\u65e0\u4efb\u4f55\u300c\u5df2\u5199\u597d\u300d\u300c\u5df2\u53d1\u5e03\u300d\u7b49\u5b8c\u6210\u6027\u9648\u8ff0\u3002"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.9307,
+        "stddev": 0.1518,
+        "min": 0.571,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 407.9375,
+        "stddev": 605.0382,
+        "min": 9.6,
+        "max": 1859.3
+      },
+      "tokens": {
+        "mean": 1518.125,
+        "stddev": 1569.2795,
+        "min": 52,
+        "max": 4527
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.7057,
+        "stddev": 0.2541,
+        "min": 0.375,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 129.075,
+        "stddev": 125.9739,
+        "min": 6.5,
+        "max": 354.2
+      },
+      "tokens": {
+        "mean": 506.875,
+        "stddev": 337.3436,
+        "min": 94,
+        "max": 936
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.22",
+      "time_seconds": "+278.9",
+      "tokens": "+1011"
+    }
+  },
+  "notes": []
+}
