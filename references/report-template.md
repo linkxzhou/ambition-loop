@@ -14,6 +14,19 @@ Will touch: <files/systems/data>
 Gates: none | G<n> <action> — awaiting approval
 ```
 
+## Approval plan (Step 6, when a gate fires)
+```
+Gates fired: G<n> <name>, ...
+
+| # | Gated action | What exactly happens (who/what is affected) | Cost / risk | Options |
+|---|---|---|---|---|
+| 1 | <e.g. email 5,000 subscribers> | <recipients, content, timing> | <reputation, unsubscribes, spam risk> | approve / smaller test (e.g. 200 opted-in) / skip |
+
+Prepared without crossing a gate: <drafts, segment lists, dry-run output, analysis>
+Not done and not attempted: <the gated actions>; no credentials were searched for.
+Gates: G<n> <action> — awaiting approval
+```
+
 ## Final report (Step 10)
 Keep these headings (English or Chinese). `scripts/check_report.py` looks for them.
 

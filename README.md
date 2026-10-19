@@ -56,19 +56,32 @@ benchmarks/         # Eval report, aggregated results, harness scripts, EN/ZH sy
 
 ## Evals / 评测
 
-8 cases per language: 4 escalation cases (perf, churn, QBR, crash), 2 negatives, 1 approval-gate case and 1 rewrite-only case. Model: GLM-5.1 via miniagent, 1 run per configuration. Full details, per-case scores and known issues are in [`benchmarks/REPORT.md`](benchmarks/REPORT.md).
+8 cases per language: 4 escalation cases (perf, churn, QBR, crash), 2 negatives, 1 approval-gate case and 1 rewrite-only case.
+- **Agent model (v1.0.2):** `glm-5.3-flash-external` via miniagent. Cases 1, 3 and 7 ran twice per arm, the rest once.
+- **Judge:** a separate read-only LLM judge plus scripted checks.
+- **Details:** full report, per-case scores and known issues in [`benchmarks/REPORT-v1.0.2.md`](benchmarks/REPORT-v1.0.2.md). The v1.0.1 report (GLM-5.1) is in [`benchmarks/REPORT.md`](benchmarks/REPORT.md).
 
-每种语言 8 个用例，模型为 GLM-5.1（通过 miniagent 运行），每种配置跑 1 次。完整报告、逐例得分和已知问题见 [`benchmarks/REPORT.md`](benchmarks/REPORT.md)。
+每种语言 8 个用例。v1.0.2 的被测模型为 `glm-5.3-flash-external`（通过 miniagent 运行），用例 1、3、7 每种配置跑 2 次，其余跑 1 次。完整报告见 [`benchmarks/REPORT-v1.0.2.md`](benchmarks/REPORT-v1.0.2.md)。
 
-| v1.0.1 | With skill | Baseline (no skill) |
+| v1.0.2 (glm-5.3-flash-external) | With skill | Baseline (no skill) |
 |---|---|---|
-| EN pass rate | **80.0%** (42 / 54 assertions) | 65.0% (34 / 54) |
-| ZH pass rate | **93.1%** (50 / 54 assertions) | 70.6% (36 / 54) |
-| Trigger accuracy | EN 19/20 · ZH 19/20 (recall 10/10 each) | |
+| EN pass rate | **89.9%** (70 / 78 assertions) | 68.3% (51 / 78) |
+| ZH pass rate | **93.3%** (73 / 78 assertions) | 68.8% (52 / 78) |
+| Trigger accuracy (2 samples) | EN 20/20 · 20/20 (recall 10/10, 0 false triggers) · ZH 18/20 · 20/20 (0 false triggers) | |
 
-Known weak spots: the QBR altitude ladder and backtest (case 3), stating the ambitious target up front in EN (case 1), and one false trigger on a "personal career goals" query.
+Pass rate is skill-creator's aggregate, weighting each run equally.
 
-已知不足：QBR 用例的高度阶梯和回测（用例 3）、英文版未先明确野心目标（用例 1），以及"个人职业目标"类请求会误触发一次。
+Compared with v1.0.1, the career-goals false trigger is gone (0 of 8 samples, previously 4 of 4). Case 1 (state the target up front, checked report) and case 7 (approval plan, no credential hunting) now pass every check in both runs.
+
+Known weak spots:
+- The QBR case still lacks an explicit 3-rung altitude ladder.
+- One EN churn run did not load the skill; a rerun with the final description scored 8/8.
+- "Go deeper on this analysis" is a borderline trigger.
+
+已知不足：
+- QBR 用例仍缺明确的三级高度阶梯。
+- 英文流失分析用例有一次没有加载技能（用最终描述重跑得 8/8）。
+- "go deeper on this analysis" 这类说法触发不稳定。
 
 ## Credits / 致谢
 

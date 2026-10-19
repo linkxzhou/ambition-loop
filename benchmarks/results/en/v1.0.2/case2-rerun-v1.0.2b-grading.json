@@ -1,0 +1,67 @@
+{
+ "expectations": [
+  {
+   "text": "[auto] final report has target-comparison / verification / gaps / next-moves / gated sections (check_report.py)",
+   "passed": true,
+   "evidence": "{\"ok\": true, \"checks\": {\"target_comparison\": true, \"verification\": true, \"gaps\": true, \"next_moves\": true, \"gated\": true, \"target_table\": true, \"claims_table\": true, \"result_tokens\": true}}"
+  },
+  {
+   "text": "[auto] agent computed from the raw CSV (python/pandas/sql over customers.csv in tool calls)",
+   "passed": true,
+   "evidence": "found"
+  },
+  {
+   "text": "The four Depth questions (expert move, rawest material, methods/tools, outside judge) are answered",
+   "passed": true,
+   "evidence": "Plan card answers all four: expert move — \"Worth doing: a hypothesis test of 'churn is an onboarding problem'... a Simpson's-paradox confounder check, a train/test-validated risk model, and a one-page memo with decisions\"; rawest material — \"raw data = evals/files/churn/customers.csv (1,500 rows × 7 cols)\" and verify_memo.py \"recompute every number in churn_memo.md from the raw CSV\"; methods/tools"
+  },
+  {
+   "text": "The onboarding hypothesis is explicitly tested against the raw data and reported as not supported (churn roughly equal with and without onboarding)",
+   "passed": true,
+   "evidence": "Memo: \"The data does not support 'churn is an onboarding problem.' Customers who complete onboarding churn at 19.6% vs 21.3% for those who don't — a 1.7pp gap that is statistically indistinguishable from zero (p = 0.46)\"; adjusted \"OR 0.87, 95% CI [0.66, 1.14]\". verify_memo.py independently re-derives from the raw CSV: check(\"onb churn 19.6%\"), check(\"no-onb churn 21.3%\"), check(\"onboarding p=0.46"
+  },
+  {
+   "text": "support_tickets_first_14d is identified as the strongest churn signal with numbers",
+   "passed": true,
+   "evidence": "\"The strongest signal in the data is somewhere else: early support friction. Churn rises monotonically with support tickets filed in the first 14 days, from 10.5% (zero tickets) to 44.8% (four tickets) — p ≈ 10⁻²⁸\", with the full table (0→10.5%, 1→19.0%, 2→36.1%, 3→38.8%, 4→44.8%; n=770/295/208/160/67) and segment numbers (435 accounts, 38.4% churn, 54.9% of churners)."
+  },
+  {
+   "text": "A statistical model or test is fit and evaluated on held-out data (a train/test split or cross-validation is reported)",
+   "passed": true,
+   "evidence": "\"A logistic model on plan, seats, tickets, and onboarding reaches AUC 0.71 on held-out data\"; Verification row: \"Test AUC 0.71 | Held-out data (50/50 split, seed 42) | PASS | Independent concordance AUC = 0.72\"; calibration evaluated on held-out deciles (\"Max decile error 0.093\"); script docstring: \"a train/test-validated logistic model\"."
+  },
+  {
+   "text": "The output proposes concrete decisions with arguments for and against, rather than only describing data",
+   "passed": true,
+   "evidence": "\"## Decisions this supports\" gives three concrete actions (2nd-ticket early-warning trigger, root-cause ticket review, flag 1-seat accounts) with supporting arithmetic (\"would save ~84 accounts, ~28% of all churn\") and explicit counter-arguments: \"Illustrative arithmetic, not a causal estimate\", \"the causal arrow is ambiguous (tickets may cause churn, or an underlying product problem may cause bot"
+  },
+  {
+   "text": "A verification table marks claims PASS/FAIL/UNVERIFIED with evidence from the analysis, not self-assessment",
+   "passed": true,
+   "evidence": "Verification table has Result column with all three marks and analysis-derived evidence: PASS — \"Onboarding gap 19.6% vs 21.3%, p=0.46 | Deterministic re-derivation | PASS | Yates chi2 recomputed independently\"; FAIL — \"Calibration error < 0.05 | Held-out deciles | FAIL | Max decile error 0.093\"; UNVERIFIED — \"Onboarding adj. OR 0.87 CI [0.66, 1.14] | UNVERIFIED externally | UNVERIFIED | Hand-roll"
+  }
+ ],
+ "summary": {
+  "passed": 8,
+  "failed": 0,
+  "total": 8,
+  "pass_rate": 1.0
+ },
+ "timing": {
+  "session_id": "20261019-123300-244b06",
+  "project": "/Users/linkxzhou/skev/ambition-loop/ambition-loop-workspace/iteration-3b/eval-2-churn-depth-challenge-belief/with_skill/run-1/project",
+  "returncode": 0,
+  "total_duration_seconds": 506.2,
+  "duration_ms": 506200,
+  "total_tokens": 858617,
+  "attempt": 1,
+  "model": "glm-5.3-flash-external"
+ },
+ "execution_metrics": {
+  "total_tool_calls": 35,
+  "skill_md_read": true,
+  "skill_md_seen_pct": 100.0,
+  "truncation_events": 7,
+  "output_chars": 6955
+ }
+}
